@@ -1,0 +1,26 @@
+{
+  "layer": "top",
+    "modules-left": ["custom/arch"],
+    "modules-center": ["hyprland/workspaces"],
+    "modules-right": ["custom/clock"],
+    "custom/arch": {
+      "format": "  ",
+      "tooltip": false,
+      "on-click": "sh $HOME/.config/rofi/bin/powermenu"
+    },
+    "hyprland/workspaces": {
+      "format": "{name}",
+      "format": "{icon}",
+      "tooltip": false,
+      "all-outputs": true,
+      "format-icons": {
+        "active": "",
+        "default": ""
+      }
+    },
+    "custom/clock": {
+        "exec": "date +'%H:%M'",
+        "interval": 1,
+        "tooltip": false,
+    }
+}
