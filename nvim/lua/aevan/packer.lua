@@ -88,7 +88,6 @@ return require('packer').startup(function(use)
 
     -- Tab Handling
     use 'nvim-tree/nvim-web-devicons' -- OPTIONAL: for file icons
-    use 'lewis6991/gitsigns.nvim' -- OPTIONAL: for git status
     use 'romgrk/barbar.nvim'
 
     -- mini libraries
@@ -125,5 +124,52 @@ return require('packer').startup(function(use)
     }
 
     use {"folke/tokyonight.nvim"}
+
+    --Oil NVIM
+    use({
+        "stevearc/oil.nvim",
+        config = function()
+          require("oil").setup(
+          { view_options = {
+                show_hidden = true,
+                is_hidden_file = function(name, bufnr)
+                  return vim.startswith(name, ".")
+                end,
+                is_always_hidden = function(name, bufnr)
+                  return false
+                end,
+                natural_order = true,
+                sort = {
+                  { "type", "asc" },
+                  { "name", "asc" },
+                },
+              }, }
+)
+        end,
+      })
+
+    --Leap
+    use {"ggandor/leap.nvim"}
+
+    --TSJ 
+    use({
+        'Wansmer/treesj',
+        requires = {'nvim-treesitter/nvim-treesitter'},
+        config = function() require('treesj').setup({
+            use_default_keymaps = false,
+            cursor_behavior = 'hold',
+        }) end,
+    })
+
+    --Trouble
+    use({
+      "folke/trouble.nvim",
+      config = function()
+          require("trouble").setup({})
+      end,
+    })
+
+    --Multi-cursor 
+    use 'mg979/vim-visual-multi'
 
 end)

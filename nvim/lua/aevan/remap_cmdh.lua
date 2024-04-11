@@ -1,5 +1,4 @@
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>;d", vim.cmd.Ex)
 vim.keymap.set("n", "<leader>w", vim.cmd.w)
 vim.keymap.set("n", "<leader>wf", "<cmd>w!<cr>")
 vim.keymap.set("n", "<leader>q", vim.cmd.q)
@@ -8,6 +7,7 @@ vim.keymap.set("n", "<leader>qa", "<cmd>qall<cr>")
 vim.keymap.set("n", "<leader>qaf", "<cmd>qall!<cr>")
 vim.keymap.set("n", "<leader>wq", vim.cmd.wq)
 vim.keymap.set("n", "<leader>wqf", "<cmd>wq!<cr>")
+vim.keymap.set("n", "<leader><Enter>", "i<Enter><Esc>")
 
 --Notification Management
 vim.keymap.set("n", "<leader>nn", function() require('noice').cmd("dismiss") end)
@@ -70,3 +70,12 @@ vim.keymap.set("n", "<leader>f", ui.toggle_quick_menu)
 vim.keymap.set("n", "<leader>j", function() ui.nav_next() end)
 vim.keymap.set("n", "<leader>b", function() ui.nav_prev() end)
 
+--Oil Navigation
+vim.keymap.set("n", ";d", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+vim.keymap.set("v", ";d", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+
+-- TSJ
+vim.keymap.set("n", "<leader>tsj", "<CMD>TSJToggle<CR>", { desc = "Toggle Split/Join" })
+
+-- Trouble
+vim.keymap.set("n", "<leader>tr", "<CMD>TroubleToggle<CR>", { desc = "Toggle Trouble Buffer" })
