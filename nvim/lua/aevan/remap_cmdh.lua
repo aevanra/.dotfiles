@@ -71,8 +71,8 @@ vim.keymap.set("n", "<leader>j", function() ui.nav_next() end)
 vim.keymap.set("n", "<leader>b", function() ui.nav_prev() end)
 
 --Oil Navigation
-vim.keymap.set("n", ";d", "<CMD>Oil<CR>", { desc = "Open parent directory" })
-vim.keymap.set("v", ";d", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+vim.keymap.set("n", "<leader>;d", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+vim.keymap.set("v", "<leader>;d", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 -- TSJ
 vim.keymap.set("n", "<leader>tsj", "<CMD>TSJToggle<CR>", { desc = "Toggle Split/Join" })
