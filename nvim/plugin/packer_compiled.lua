@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/home/aevan/.cache/nvim/packer_hererocks/2.1.1702233742/share/lua/5.1/?.lua;/home/aevan/.cache/nvim/packer_hererocks/2.1.1702233742/share/lua/5.1/?/init.lua;/home/aevan/.cache/nvim/packer_hererocks/2.1.1702233742/lib/luarocks/rocks-5.1/?.lua;/home/aevan/.cache/nvim/packer_hererocks/2.1.1702233742/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/aevan/.cache/nvim/packer_hererocks/2.1.1702233742/lib/lua/5.1/?.so"
+local package_path_str = "/home/aevan/.cache/nvim/packer_hererocks/2.1.1713773202/share/lua/5.1/?.lua;/home/aevan/.cache/nvim/packer_hererocks/2.1.1713773202/share/lua/5.1/?/init.lua;/home/aevan/.cache/nvim/packer_hererocks/2.1.1713773202/lib/luarocks/rocks-5.1/?.lua;/home/aevan/.cache/nvim/packer_hererocks/2.1.1713773202/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/aevan/.cache/nvim/packer_hererocks/2.1.1713773202/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -213,7 +213,7 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-tree/nvim-web-devicons"
   },
   ["oil.nvim"] = {
-    config = { "\27LJ\2\n,\0\2\6\0\3\0\0056\2\0\0009\2\1\2\18\4\0\0'\5\2\0D\2\3\0\6.\15startswith\bvim\15\0\2\3\0\0\0\2+\2\1\0L\2\2\0Õ\1\1\0\6\0\r\0\0196\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\v\0005\3\3\0003\4\4\0=\4\5\0033\4\6\0=\4\a\0034\4\3\0005\5\b\0>\5\1\0045\5\t\0>\5\2\4=\4\n\3=\3\f\2B\0\2\1K\0\1\0\17view_options\1\0\0\tsort\1\3\0\0\tname\basc\1\3\0\0\ttype\basc\21is_always_hidden\0\19is_hidden_file\0\1\0\2\18natural_order\2\16show_hidden\2\nsetup\boil\frequire\0" },
+    config = { "\27LJ\2\n,\0\2\6\0\3\0\0056\2\0\0009\2\1\2\18\4\0\0'\5\2\0D\2\3\0\6.\15startswith\bvim\15\0\2\3\0\0\0\2+\2\1\0L\2\2\0‹\2\1\0\6\0\r\0\0196\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\v\0005\3\3\0003\4\4\0=\4\5\0033\4\6\0=\4\a\0034\4\3\0005\5\b\0>\5\1\0045\5\t\0>\5\2\4=\4\n\3=\3\f\2B\0\2\1K\0\1\0\17view_options\1\0\1\17view_options\0\tsort\1\3\0\0\tname\basc\1\3\0\0\ttype\basc\21is_always_hidden\0\19is_hidden_file\0\1\0\5\19is_hidden_file\0\21is_always_hidden\0\tsort\0\16show_hidden\2\18natural_order\2\nsetup\boil\frequire\0" },
     loaded = true,
     path = "/home/aevan/.local/share/nvim/site/pack/packer/start/oil.nvim",
     url = "https://github.com/stevearc/oil.nvim"
@@ -259,7 +259,7 @@ _G.packer_plugins = {
     url = "https://github.com/xiyaowong/transparent.nvim"
   },
   treesj = {
-    config = { "\27LJ\2\ne\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\2\24use_default_keymaps\1\20cursor_behavior\thold\nsetup\vtreesj\frequire\0" },
+    config = { "\27LJ\2\ne\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\2\20cursor_behavior\thold\24use_default_keymaps\1\nsetup\vtreesj\frequire\0" },
     loaded = true,
     path = "/home/aevan/.local/share/nvim/site/pack/packer/start/treesj",
     url = "https://github.com/Wansmer/treesj"
@@ -298,18 +298,18 @@ time([[Defining packer_plugins]], false)
 time([[Config for which-key.nvim]], true)
 try_loadstring("\27LJ\2\nt\0\0\3\0\a\0\0156\0\0\0009\0\1\0+\1\2\0=\1\2\0006\0\0\0009\0\1\0)\1,\1=\1\3\0006\0\4\0'\2\5\0B\0\2\0029\0\6\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14which-key\frequire\15timeoutlen\ftimeout\6o\bvim\0", "config", "which-key.nvim")
 time([[Config for which-key.nvim]], false)
+-- Config for: treesj
+time([[Config for treesj]], true)
+try_loadstring("\27LJ\2\ne\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\2\20cursor_behavior\thold\24use_default_keymaps\1\nsetup\vtreesj\frequire\0", "config", "treesj")
+time([[Config for treesj]], false)
+-- Config for: oil.nvim
+time([[Config for oil.nvim]], true)
+try_loadstring("\27LJ\2\n,\0\2\6\0\3\0\0056\2\0\0009\2\1\2\18\4\0\0'\5\2\0D\2\3\0\6.\15startswith\bvim\15\0\2\3\0\0\0\2+\2\1\0L\2\2\0‹\2\1\0\6\0\r\0\0196\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\v\0005\3\3\0003\4\4\0=\4\5\0033\4\6\0=\4\a\0034\4\3\0005\5\b\0>\5\1\0045\5\t\0>\5\2\4=\4\n\3=\3\f\2B\0\2\1K\0\1\0\17view_options\1\0\1\17view_options\0\tsort\1\3\0\0\tname\basc\1\3\0\0\ttype\basc\21is_always_hidden\0\19is_hidden_file\0\1\0\5\19is_hidden_file\0\21is_always_hidden\0\tsort\0\16show_hidden\2\18natural_order\2\nsetup\boil\frequire\0", "config", "oil.nvim")
+time([[Config for oil.nvim]], false)
 -- Config for: trouble.nvim
 time([[Config for trouble.nvim]], true)
 try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\ftrouble\frequire\0", "config", "trouble.nvim")
 time([[Config for trouble.nvim]], false)
--- Config for: oil.nvim
-time([[Config for oil.nvim]], true)
-try_loadstring("\27LJ\2\n,\0\2\6\0\3\0\0056\2\0\0009\2\1\2\18\4\0\0'\5\2\0D\2\3\0\6.\15startswith\bvim\15\0\2\3\0\0\0\2+\2\1\0L\2\2\0Õ\1\1\0\6\0\r\0\0196\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\v\0005\3\3\0003\4\4\0=\4\5\0033\4\6\0=\4\a\0034\4\3\0005\5\b\0>\5\1\0045\5\t\0>\5\2\4=\4\n\3=\3\f\2B\0\2\1K\0\1\0\17view_options\1\0\0\tsort\1\3\0\0\tname\basc\1\3\0\0\ttype\basc\21is_always_hidden\0\19is_hidden_file\0\1\0\2\18natural_order\2\16show_hidden\2\nsetup\boil\frequire\0", "config", "oil.nvim")
-time([[Config for oil.nvim]], false)
--- Config for: treesj
-time([[Config for treesj]], true)
-try_loadstring("\27LJ\2\ne\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\2\24use_default_keymaps\1\20cursor_behavior\thold\nsetup\vtreesj\frequire\0", "config", "treesj")
-time([[Config for treesj]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
