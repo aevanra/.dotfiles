@@ -179,8 +179,6 @@ bindsym $mod+r mode "resize"
 # Screenshotting
 bindsym Print exec --no-startup-id flameshot gui
 
-
-
 # Workspaces Default To Monitors
 workspace 1 output DP-2
 workspace 2 output HDMI-1
