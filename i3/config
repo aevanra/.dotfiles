@@ -199,7 +199,7 @@ for_window [class="^.*"] border pixel 0
 # Monitor Setup
 exec --no-startup-id /home/aevan/.config/i3/set_i3_monitors.sh
 # Polybar setup
-exec --no-startup-id /home/aevan/.config/i3/setup_polybar.sh
+exec_always --no-startup-id /home/aevan/.config/i3/setup_polybar.sh
 
 # Picom
 exec --no-startup-id picom -b
@@ -207,5 +207,3 @@ exec --no-startup-id picom -b
 # Set wallpaper
 exec_always --no-startup-id /home/aevan/.config/i3/set_feh.sh
 
-# Pulseaudio
-exec --no-startup-id pulseaudio --start
