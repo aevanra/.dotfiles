@@ -1,3 +1,4 @@
+#! /bin/zsh
 if pgrep -x animate > /dev/null
 then
 	id=$(pgrep -x animate)
