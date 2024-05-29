@@ -1,3 +1,5 @@
+#! /bin/zsh
+
 while getopts m:f:c flag
 do
     case "${flag}" in

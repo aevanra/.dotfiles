@@ -1,3 +1,5 @@
+#! /bin/zsh
+
 if $(pgrep -x polybar > /dev/null); then
   killall -q polybar
   sleep 1
