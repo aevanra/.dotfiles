@@ -1,4 +1,4 @@
-#! /bin/zsh
+#! /bin/zsh 
 
 landscape1=$(ls /home/aevan/Pictures/wallpapers/landscape/ | echo /home/aevan/Pictures/wallpapers/landscape/$(shuf -n 1))
 landscape2=$(ls /home/aevan/Pictures/wallpapers/landscape/ | echo /home/aevan/Pictures/wallpapers/landscape/$(shuf -n 1))
