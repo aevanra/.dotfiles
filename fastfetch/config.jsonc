@@ -14,6 +14,7 @@
     "cpu",
     "gpu",
     "memory",
+    "player",
     "colors"
   ]
 }

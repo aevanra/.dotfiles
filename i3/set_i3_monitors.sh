@@ -1,4 +1,3 @@
-#! /bin/zsh
 
 # Monitors left to right -- DP-0, HDMI-1, DP-2
 xrandr --output DP-0 --auto --pos 0x0 --rotate left

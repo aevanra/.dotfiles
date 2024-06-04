@@ -1,4 +1,4 @@
-#! /bin/zsh
+#! /bin/bash
 
 while getopts m:f:c flag
 do
