@@ -166,6 +166,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 # Screenshotting
 bindsym Print exec --no-startup-id flameshot gui
+bindsym $mod+Print exec --no-startup-id flameshot full -p /home/aevan/Pictures/Screenshots
 
 # Workspaces Default To Monitors
 workspace 1 output DP-2
