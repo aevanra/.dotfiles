@@ -43,7 +43,7 @@ alias astro='sudo astro'
 alias fwvpn='/home/aevan/Scripts/fw_vpn.sh'
 
 # Env Vars
-source $home/.env
+source $HOME/.env
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/aevan/google-cloud-sdk/path.zsh.inc' ]; then . '/home/aevan/google-cloud-sdk/path.zsh.inc'; fi
@@ -61,6 +61,7 @@ fastfetch
 
 # Autosuggestions
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+bindkey '^N' autosuggest-accept
 
 # Syntax Highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -73,9 +74,27 @@ source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
-
 # Zoxide
 eval "$(zoxide init zsh)"
+
+# Enable extended globbing
+setopt extended_glob
+setopt globdots
+
+# Completion Settings -- Case Insensitive and .files so "conf" will complete to ".config"
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=* m:{^.}={^\..}'
+
+# Include dotfiles in file completion
+zstyle ':completion:*:*:*:default' list-dirs-first true
+zstyle ':completion:*:*:*:default' hidden-dirs yes
+zstyle ':completion:*:*:*:default' file-patterns '*(-/):directories .*(.)'
+
+# Add all files including dotfiles to the completion list
+zstyle ':completion:*' file-patterns '*(-/):directories' '*(-.):files' '.*:all-files'
+
+# Include hidden files in filename completion
+zstyle ':completion:*' special-dirs true
+zstyle ':completion:*' list-dirs-first true
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
