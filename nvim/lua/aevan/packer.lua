@@ -97,8 +97,8 @@ return require('packer').startup(function(use)
 
     -- LuaLine
     use {
-    'nvim-lualine/lualine.nvim',
-    requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+        'nvim-lualine/lualine.nvim',
+        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     }
 
     -- DBT Tool
@@ -110,8 +110,6 @@ return require('packer').startup(function(use)
         "rcarriga/nvim-notify",
     },
     }
-
-    use {"mrquantumcodes/retrospect.nvim"}
 
     use {"xiyaowong/transparent.nvim"}
 
@@ -171,5 +169,10 @@ return require('packer').startup(function(use)
 
     --Multi-cursor 
     use 'mg979/vim-visual-multi'
+
+    --DB
+    use 'tpope/vim-dadbod'
+    use 'kristijanhusak/vim-dadbod-ui'
+    use 'kristijanhusak/vim-dadbod-completion'
 
 end)

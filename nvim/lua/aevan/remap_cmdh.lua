@@ -48,6 +48,12 @@ vim.keymap.set('n', '<leader><Down>', '<C-w>j')
 vim.keymap.set('n', '<leader><Up>', '<C-w>k')
 vim.keymap.set('n', '<leader><Right>', '<C-w>l')
 
+-- Window Resizing
+vim.keymap.set('n', '<C-i>', '<C-w>>') -- increase width
+vim.keymap.set('n', '<C-e>', '<C-w>+') -- increase height 
+vim.keymap.set('n', '<C-n>', '<C-w>-') -- decrease height
+vim.keymap.set('n', '<C-m>', '<C-w><') -- decrease width
+
 --LSP Refresh
 vim.keymap.set('n', '<leader>lsp', ':LspRestart<CR>')
 
@@ -78,4 +84,20 @@ vim.keymap.set("v", "<leader>;d", "<CMD>Oil<CR>", { desc = "Open parent director
 vim.keymap.set("n", "<leader>tsj", "<CMD>TSJToggle<CR>", { desc = "Toggle Split/Join" })
 
 -- Trouble
-vim.keymap.set("n", "<leader>tr", "<CMD>TroubleToggle<CR>", { desc = "Toggle Trouble Buffer" })
+vim.keymap.set("n", "<leader>tr", "<CMD>Trouble diagnostics toggle<CR>", { desc = "Toggle Trouble Buffer" })
+vim.keymap.set("n", "<leader>cl", "<CMD>Trouble lsp toggle focus<CR>", { desc = "Toggle Trouble Buffer" })
+
+-- DBUI
+vim.keymap.set("n", "<leader>db", "<CMD>DBUIToggle<CR>", { desc = "Toggle DBUI" })
+
+-- DBT Stuff
+vim.keymap.set("n", "<leader>gd", "<CMD>DBTGoToDefinition<CR>", { desc = "Go to definition DBT" })
+vim.api.nvim_create_autocmd("Filetype",{
+    pattern = {"sql"},
+    callback = function()
+        vim.schedule(function()
+            vim.keymap.set("n", "<leader>gd", "<CMD>DBTGoToDefinition<CR>", { desc = "Go to definition DBT" })
+        end)
+    end,
+})
+

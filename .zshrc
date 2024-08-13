@@ -5,12 +5,55 @@ else
   export EDITOR='nvim'
 fi
 
-# Set history to persist
+# Set history options
+setopt extended_history
+setopt hist_expire_dups_first
+setopt hist_ignore_dups
+setopt hist_ignore_space
+setopt hist_verify
+setopt inc_append_history
+setopt share_history
 HISTFILE=~/.zsh_history
+source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+
+# Autosuggestions
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+bindkey '^N' autosuggest-accept
+
+# Enable extended globbing
+setopt extended_glob
+setopt globdots
+# Completion Settings -- Case Insensitive and .files so "conf" will complete to ".config"
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=* m:{^.}={^\..}'
+# Include dotfiles in file completion
+zstyle ':completion:*:*:*:default' list-dirs-first true
+zstyle ':completion:*:*:*:default' hidden-dirs yes
+zstyle ':completion:*:*:*:default' file-patterns '*(-/):directories .*(.)'
+# Add all files including dotfiles to the completion list
+zstyle ':completion:*' file-patterns '*(-/):directories' '*(-.):files' '.*:all-files'
+# Include hidden files in filename completion
+zstyle ':completion:*' special-dirs true
+zstyle ':completion:*' list-dirs-first true
+
+# Syntax Highlighting
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# autonotify
+source /usr/share/zsh/plugins/zsh-auto-notify/auto-notify.plugin.zsh
+# autopair
+source /usr/share/zsh/plugins/zsh-autopair/autopair.zsh
+# you-should-use
+source /usr/share/zsh/plugins/zsh-you-should-use/you-should-use.plugin.zsh
 
 # thefuck
 eval $(thefuck --alias)
 eval $(thefuck --alias fk)
+
+de_dir="/home/aevan/Documents/DE-pipelines"
+bb_dir="/home/aevan/Documents/blackbird-api"
+de_venv_dir="/home/aevan/python_venvs/de-pipelines/bin/activate"
+bb_venv_dir="/home/aevan/python_venvs/bb3.11/bin/activate"
 
 #Aliases
 alias ls='ls --color=auto'
@@ -20,20 +63,18 @@ alias egrep='egrep --color=auto'
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 alias python='python3'
-alias vim='nvim'
-alias de-home='cd /home/aevan/Documents/DE-pipelines'
-alias bb-home='cd /home/aevan/Documents/blackbird-api'
-alias de-venv='source /home/aevan/python_venvs/de-pipelines/bin/activate'
-alias bb-venv='source /home/aevan/python_venvs/bb3.11/bin/activate'
-alias home-env='source /home/aevan/.bashrc'
-alias de-work='de-home && de-venv && vim .'
-alias bb-work='bb-home && bb-venv && vim .'
+alias nv='nvim .'
+alias de-home='cd $de_dir'
+alias bb-home='cd $bb_dir'
+alias de-venv='source $de_venv_dir'
+alias bb-venv='source $bb_venv_dir'
+alias home-env='source /home/aevan/.zshrc'
+alias de-work='/home/aevan/Scripts/setup_tmux_session.sh -s de-work -d $de_dir -v $de_venv_dir'
+alias bb-work='/home/aevan/Scripts/setup_tmux_session.sh -s bb-work -d $bb_dir -v $bb_venv_dir'
 alias bb-test='bb-home && cd blackbird_data_interface/api/tests && bb-venv'
 alias run-bb='bb-home && bb-venv && cd blackbird_data_interface/api && uvicorn --reload main:app --port 8000'
 alias refresh_src='sudo /home/aevan/Documents/DE-pipelines/airflow_processing/include/manage_src_for_local_astro_instance.sh'
-alias r2modman='/home/aevan/r2modman/r2modman-3.1.45.AppImage --no-sandbox'
 alias cd='z'
 alias ta='tmux attach'
 alias gmux='tmux'
@@ -47,7 +88,6 @@ source $HOME/.env
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/aevan/google-cloud-sdk/path.zsh.inc' ]; then . '/home/aevan/google-cloud-sdk/path.zsh.inc'; fi
-
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/aevan/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/aevan/google-cloud-sdk/completion.zsh.inc'; fi
 
@@ -56,45 +96,11 @@ eval "$( oh-my-posh init zsh --config $HOME/.dotfiles/ohmyposh/omp.toml )"
 # pywal theme import
 (cat ~/.cache/wal/sequences &)
 
-# Set fastfetch on init
-fastfetch
-
-# Autosuggestions
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-bindkey '^N' autosuggest-accept
-
-# Syntax Highlighting
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# autopair
-source /usr/share/zsh/plugins/zsh-autopair/autopair.zsh
-
-# History Substring Search
-source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
-
 # Zoxide
 eval "$(zoxide init zsh)"
 
-# Enable extended globbing
-setopt extended_glob
-setopt globdots
-
-# Completion Settings -- Case Insensitive and .files so "conf" will complete to ".config"
-zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=* m:{^.}={^\..}'
-
-# Include dotfiles in file completion
-zstyle ':completion:*:*:*:default' list-dirs-first true
-zstyle ':completion:*:*:*:default' hidden-dirs yes
-zstyle ':completion:*:*:*:default' file-patterns '*(-/):directories .*(.)'
-
-# Add all files including dotfiles to the completion list
-zstyle ':completion:*' file-patterns '*(-/):directories' '*(-.):files' '.*:all-files'
-
-# Include hidden files in filename completion
-zstyle ':completion:*' special-dirs true
-zstyle ':completion:*' list-dirs-first true
+# Set fastfetch on init
+fastfetch
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
