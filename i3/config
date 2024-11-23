@@ -180,6 +180,7 @@ gaps inner 8
 smart_gaps on
 
 for_window [class="Animate"] floating enable move position mouse move down 32
+for_window [class="scrcpy"] floating enable move position
 
 focus_follows_mouse no
 

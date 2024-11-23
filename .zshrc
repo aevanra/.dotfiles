@@ -6,14 +6,15 @@ else
 fi
 
 # Set history options
-setopt extended_history
-setopt hist_expire_dups_first
-setopt hist_ignore_dups
-setopt hist_ignore_space
-setopt hist_verify
-setopt inc_append_history
-setopt share_history
-HISTFILE=~/.zsh_history
+HISTFILE=/home/aevan/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt EXTENDED_HISTORY
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_VERIFY
+setopt INC_APPEND_HISTORY
 source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
@@ -36,6 +37,9 @@ zstyle ':completion:*' file-patterns '*(-/):directories' '*(-.):files' '.*:all-f
 # Include hidden files in filename completion
 zstyle ':completion:*' special-dirs true
 zstyle ':completion:*' list-dirs-first true
+# zfunc
+fpath+=~/.zfunc
+autoload -Uz compinit && compinit
 
 # Syntax Highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -98,6 +102,9 @@ eval "$( oh-my-posh init zsh --config $HOME/.dotfiles/ohmyposh/omp.toml )"
 
 # Zoxide
 eval "$(zoxide init zsh)"
+
+# Set up pyenv
+eval "$(pyenv init -)"
 
 # Set fastfetch on init
 fastfetch

@@ -55,7 +55,7 @@ font-0 = MesloLGS Nerd Font:size=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
-modules-left = bspwm i3 shart
+modules-left = bspwm i3 scrcpy shart
 modules-right = pulseaudio temperature date eth powermenu
 
 tray-position = right
@@ -136,6 +136,12 @@ label-urgent-padding = 2
 
 ; Separator in between workspaces
 ; label-separator = |
+;
+[module/scrcpy]
+type = custom/text
+content-foreground = ${colors.foreground}
+content = "Pixel"
+click-left = "scrcpy -d"
 
 [module/shart]
 type = custom/script

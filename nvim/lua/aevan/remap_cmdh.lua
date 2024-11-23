@@ -1,5 +1,6 @@
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>w", vim.cmd.w)
+vim.keymap.set("i", "jj", "<Esc>")
 vim.keymap.set("n", "<leader>wf", "<cmd>w!<cr>")
 vim.keymap.set("n", "<leader>q", vim.cmd.q)
 vim.keymap.set("n", "<leader>qf", "<cmd>q!<cr>")
@@ -91,7 +92,6 @@ vim.keymap.set("n", "<leader>cl", "<CMD>Trouble lsp toggle focus<CR>", { desc = 
 vim.keymap.set("n", "<leader>db", "<CMD>DBUIToggle<CR>", { desc = "Toggle DBUI" })
 
 -- DBT Stuff
-vim.keymap.set("n", "<leader>gd", "<CMD>DBTGoToDefinition<CR>", { desc = "Go to definition DBT" })
 vim.api.nvim_create_autocmd("Filetype",{
     pattern = {"sql"},
     callback = function()
