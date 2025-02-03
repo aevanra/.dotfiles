@@ -175,4 +175,7 @@ return require('packer').startup(function(use)
     use 'kristijanhusak/vim-dadbod-ui'
     use 'kristijanhusak/vim-dadbod-completion'
 
+    --Shellcheck
+    use 'itspriddle/vim-shellcheck'
+
 end)
