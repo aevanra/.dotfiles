@@ -41,6 +41,12 @@ zstyle ':completion:*' list-dirs-first true
 fpath+=~/.zfunc
 autoload -Uz compinit && compinit
 
+# Prompt editing
+autoload -z edit-command-line
+zle -N edit-command-line
+bindkey "^E" edit-command-line
+
+
 # Syntax Highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # autonotify
@@ -84,7 +90,6 @@ alias ta='tmux attach'
 alias gmux='tmux'
 alias neofetch='clear && fastfetch'
 alias fastfetch='clear && fastfetch'
-alias astro='sudo astro'
 alias fwvpn='/home/aevan/Scripts/fw_vpn.sh'
 
 # Env Vars
@@ -103,12 +108,16 @@ eval "$( oh-my-posh init zsh --config $HOME/.dotfiles/ohmyposh/omp.toml )"
 # Zoxide
 eval "$(zoxide init zsh)"
 
-# Set up pyenv
-eval "$(pyenv init -)"
-
 # Set fastfetch on init
 fastfetch
+
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+fpath+=~/.zfunc; autoload -Uz compinit; compinit

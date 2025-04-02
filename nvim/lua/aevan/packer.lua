@@ -55,11 +55,16 @@ return require('packer').startup(function(use)
       {'hrsh7th/cmp-nvim-lsp'},
       {'L3MON4D3/LuaSnip'},
       {'saadparwaiz1/cmp_luasnip'},
-      {'rafamadriz/friendly-snippets'}
+      {'rafamadriz/friendly-snippets'},
     }
     }
 
+    -- LSP formatting
+    use 'onsails/lspkind.nvim'
+
+    -- ai companions
     use('github/copilot.vim')
+    use('tzachar/cmp-ai')
 
     --which key
     use {
@@ -174,5 +179,8 @@ return require('packer').startup(function(use)
     use 'tpope/vim-dadbod'
     use 'kristijanhusak/vim-dadbod-ui'
     use 'kristijanhusak/vim-dadbod-completion'
+
+    --Shellcheck
+    use 'itspriddle/vim-shellcheck'
 
 end)

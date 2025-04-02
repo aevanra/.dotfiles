@@ -26,13 +26,19 @@ require('mason-lspconfig').setup({
       require('lspconfig').lua_ls.setup(lua_opts)
     end,
     capabilities = capabilities,
-    --ruff_lsp = function()
-	--    require("lspconfig").ruff_lsp.setup{
-    --    settings = {
-    --        args = {}
-    --    }
-    --}
-	--end,
+    ruff = function()
+    require("lspconfig").ruff.setup({
+       settings = {
+           enable = true,
+           organizeImports = true,
+           fixAll = false,
+           lint = {
+               enable = true,
+               run = 'onSave'
+           }
+       }
+    })
+	end,
 }})
 
 local cmp = require('cmp')

@@ -60,7 +60,7 @@ final_space = true
       fetch_upstream_icon = true
 
   [[blocks.segments]]
-    template = ' {{ if .Error }} ⓧ 에러{{ end }} '
+    template = ' {{ if eq .Code 0 }} {{else}} ⓧ Error {{ end }} '
     foreground = '#ff0000'
     type = 'status'
     style = 'powerline'
