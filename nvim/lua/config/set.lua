@@ -30,4 +30,5 @@ vim.opt.colorcolumn = "124"
 
 vim.opt.clipboard:append("unnamedplus")
 
-vim.cmd[[colorscheme tokyonight-night]]
+vim.o.timeout = true
+vim.o.timeoutlen = 300
