@@ -90,7 +90,10 @@ return {
     { "onsails/lspkind.nvim" },
 
     -- Command Completion
-    { "smolck/command-completion.nvim" },
+    {
+        "smolck/command-completion.nvim",
+        opts = {}
+    },
 
     -- Snippets
     { "L3MON4D3/LuaSnip" },
