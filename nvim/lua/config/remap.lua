@@ -131,3 +131,16 @@ end)
 
 -- undotree
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
+
+-- tabs
+vim.keymap.set("n", "<leader>1", "<CMD>BufferGoto 1<CR>")
+vim.keymap.set("n", "<leader>2", "<CMD>BufferGoto 2<CR>")
+vim.keymap.set("n", "<leader>3", "<CMD>BufferGoto 3<CR>")
+vim.keymap.set("n", "<leader>4", "<CMD>BufferGoto 4<CR>")
+vim.keymap.set("n", "<leader>5", "<CMD>BufferGoto 5<CR>")
+vim.keymap.set("n", "<leader>6", "<CMD>BufferGoto 6<CR>")
+vim.keymap.set("n", "<leader>7", "<CMD>BufferGoto 7<CR>")
+vim.keymap.set("n", "<leader>8", "<CMD>BufferGoto 8<CR>")
+vim.keymap.set("n", "<leader>9", "<CMD>BufferGoto 9<CR>")
+vim.keymap.set("n", "<leader>0", "<CMD>BufferLast<CR>")
+

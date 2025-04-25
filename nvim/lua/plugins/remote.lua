@@ -1,5 +1,5 @@
 return {
-    { 
+    {
         "amitds1997/remote-nvim.nvim",
             version = "*",
             dependencies = {
@@ -8,5 +8,11 @@ return {
                 "nvim-telescope/telescope.nvim", -- For picking b/w different remote methods
             },
             config = true,
+            opts = {
+                offline_mode = {
+                    enabled = true,
+                    no_github = false,
+                }
+            }
     }
 }
