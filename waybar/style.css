@@ -6,16 +6,17 @@
   min-height: 0;
 }
 
-window#waybar {
+#waybar {
   background: transparent;
 }
 
-#custom-arch, #workspaces {
+#custom-arch, #workspaces, #custom-clock {
   border-radius: 10px;
   background-color: #11111b;
   color: #b4befe;
-  margin-top: 10px;
+  margin-top: 5px;
   margin-right: 15px;
+  margin-bottom: 5px;
   padding-top: 0;
   padding-left: 10px;
   padding-right: 10px;
@@ -27,12 +28,7 @@ window#waybar {
   color: #b4befe;
 }
 
-#workspaces button {
-  background: #11111b;
-  color: #b4befe;
-}
-
-#custom-clock, #backlight, #pulseaudio, #bluetooth, #network, #battery{
+#custom-clock {
   border-radius: 10px;
   background-color: #11111b;
   color: #cdd6f4;
@@ -40,21 +36,4 @@ window#waybar {
   padding-left: 10px;
   padding-right: 10px;
   margin-right: 15px;
-}
-
-#backlight, #bluetooth {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  padding-right: 5px;
-  margin-right: 0
-}
-
-#pulseaudio, #network {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  padding-left: 5px;
-}
-
-#clock {
-  margin-right: 0;
 }

@@ -42,7 +42,7 @@
     },
 
     // Hyprland Window
-    "hyprland/window": {
+    "sway/window": {
         "rewrite": {
             "(.*) - Brave": "$1",
             "(.*) - Chromium": "$1",

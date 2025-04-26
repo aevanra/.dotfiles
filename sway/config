@@ -1,0 +1,163 @@
+# Sway config, translated from your i3 config
+include /etc/sway/config.d/*
+
+set $mod Mod4
+
+font pango:monospace 8
+
+# Start autostart apps (no dex; Wayland prefers manual or systemd user services)
+exec --no-startup-id nm-applet
+
+# Monitors
+output DP-3 pos 0 0 transform 270 mode 1080x1920
+output HDMI-A-1 pos 1080 120 mode 2560x1440
+output DP-2 pos 3640 120 mode 2560x1440
+
+# Wallpapers
+exec /home/aevan/.config/sway/set_sway_bg.sh
+
+
+# Clipboard manager and others would go here if needed
+
+# Audio controls
+set $refresh_swaybar killall -SIGUSR1 waybar
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_swaybar
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_swaybar
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_swaybar
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_swaybar
+
+# Floating modifier
+floating_modifier $mod
+
+
+# Terminal
+bindsym $mod+Return exec kitty  # or foot, kitty, etc.
+
+# Kill window
+bindsym $mod+Shift+q kill
+
+# App launcher
+bindsym $mod+space exec rofi -show drun -monitor -4
+
+# Focus movement
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# Move windows
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# Split orientation
+bindsym $mod+h split h
+bindsym $mod+v split v
+
+# Fullscreen
+bindsym $mod+f fullscreen toggle
+
+# Change layout
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# Focus parent container
+bindsym $mod+a focus parent
+
+# Workspaces
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+
+# Reload config
+bindsym $mod+Shift+c reload 
+bindsym $mod+Shift+r exec /home/aevan/.config/sway/set_sway_bg.sh
+
+# Exit Sway
+bindsym $mod+Shift+e exec "swaymsg exit"
+
+# Close all notifications
+bindsym $mod+n exec "dunstctl close-all"
+
+# Resize mode
+mode "resize" {
+    bindsym j resize shrink width 10px
+    bindsym k resize grow height 10px
+    bindsym l resize shrink height 10px
+    bindsym semicolon resize grow width 10px
+
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
+}
+bindsym $mod+r mode "resize"
+
+# Screenshotting (Flameshot needs XWayland for GUI shots)
+bindsym Print exec flameshot gui
+bindsym $mod+Print exec flameshot full -p ~/Pictures/Screenshots
+
+# Workspace output mapping
+workspace "1" output DisplayPort-1
+workspace "2" output HDMI-A-0
+workspace "3" output DisplayPort-2
+
+# Gaps
+gaps inner 8
+
+smart_gaps on
+smart_borders on
+
+# Floating windows specific rules
+for_window [app_id="Animate"] floating enable, move position mouse, move down 32
+for_window [app_id="scrcpy"] floating enable, move position center
+
+# Focus follows mouse off
+focus_follows_mouse no
+
+# Disable titlebars
+for_window [app_id=".*"] border pixel 0
+
+# Bar (Waybar instead of Polybar)
+exec_always --no-startup-id /home/aevan/.config/sway/setup_waybar.sh
+
+# Lock Screen
+bindsym $mod+l exec swaylock
+
+# Notifications (Dunst works under XWayland if necessary)
+exec --no-startup-id dunst
