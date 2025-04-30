@@ -13,6 +13,13 @@ output DP-3 pos 0 0 transform 270 mode 1080x1920
 output HDMI-A-1 pos 1080 120 mode 2560x1440
 output DP-2 pos 3640 120 mode 2560x1440
 
+output * adaptive_sync off
+
+# Workspace output mapping
+workspace "3" output DP-3
+workspace "2" output HDMI-A-1
+workspace "1" output DP-2
+
 # Wallpapers
 exec /home/aevan/.config/sway/set_sway_bg.sh
 
@@ -37,7 +44,7 @@ bindsym $mod+Return exec kitty  # or foot, kitty, etc.
 bindsym $mod+Shift+q kill
 
 # App launcher
-bindsym $mod+space exec rofi -show drun -monitor -4
+bindsym $mod+space exec wofi --show drun --monitor -4
 
 # Focus movement
 bindsym $mod+Left focus left
@@ -129,13 +136,9 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Screenshotting (Flameshot needs XWayland for GUI shots)
-bindsym Print exec flameshot gui
-bindsym $mod+Print exec flameshot full -p ~/Pictures/Screenshots
+bindsym Print exec grimshot copy area
+bindsym $mod+Print exec grimshot copy screen
 
-# Workspace output mapping
-workspace "1" output DisplayPort-1
-workspace "2" output HDMI-A-0
-workspace "3" output DisplayPort-2
 
 # Gaps
 gaps inner 8
@@ -146,6 +149,7 @@ smart_borders on
 # Floating windows specific rules
 for_window [app_id="Animate"] floating enable, move position mouse, move down 32
 for_window [app_id="scrcpy"] floating enable, move position center
+bindsym $mod+shift+space floating toggle
 
 # Focus follows mouse off
 focus_follows_mouse no
@@ -155,6 +159,7 @@ for_window [app_id=".*"] border pixel 0
 
 # Bar (Waybar instead of Polybar)
 exec_always --no-startup-id /home/aevan/.config/sway/setup_waybar.sh
+bindsym $mod+g exec pkill waybar & waybar -c /home/aevan/.config/waybar2/config &
 
 # Lock Screen
 bindsym $mod+l exec swaylock

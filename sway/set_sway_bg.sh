@@ -2,12 +2,12 @@
 
 wp_home="/home/aevan/Pictures/wallpapers"
 sway_bgs=$wp_home/sway_bgs
-l1=$(ls $wp_home/landscape/ | echo $wp_home/landscape/$(shuf -n 1))
-l2=$(ls $wp_home/landscape/ | echo $wp_home/landscape/$(shuf -n 1))
-p=$(ls $wp_home/portrait/ | echo $wp_home/portrait/$(shuf -n 1))
+l1=$(ls $wp_home/landscape/ | echo $wp_home/landscape/"$(shuf -n 1)")
+l2=$(ls $wp_home/landscape/ | echo $wp_home/landscape/"$(shuf -n 1)")
+p=$(ls $wp_home/portrait/ | echo $wp_home/portrait/"$(shuf -n 1)")
 
 while [ "$l1" == "$l2" ]; do
-    l2=$(ls /home/aevan/Pictures/wallpapers/landscape/ | echo /home/aevan/Pictures/wallpapers/landscape/$(shuf -n 1))
+    l2=$(ls /home/aevan/Pictures/wallpapers/landscape/ | echo /home/aevan/Pictures/wallpapers/landscape/"$(shuf -n 1)")
 done
 
 rm -rf ${sway_bgs:?}/*
