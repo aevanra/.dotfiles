@@ -1,6 +1,7 @@
 return {
     {
         "xiyaowong/transparent.nvim",
+        lazy_= false,
         opts = { -- Optional, you don't have to run setup.
             groups = { -- table: default groups
                 'Normal', 'NormalNC', 'Comment', 'Constant', 'Special', 'Identifier',
