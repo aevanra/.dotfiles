@@ -23,8 +23,9 @@ workspace "1" output DP-2
 # Wallpapers
 exec /home/aevan/.config/sway/set_sway_bg.sh
 
+# Opacity
+exec /home/aevan/.config/sway/manage_opacity.sh
 
-# Clipboard manager and others would go here if needed
 
 # Audio controls
 set $refresh_swaybar killall -SIGUSR1 waybar
@@ -44,7 +45,7 @@ bindsym $mod+Return exec kitty  # or foot, kitty, etc.
 bindsym $mod+Shift+q kill
 
 # App launcher
-bindsym $mod+space exec wofi --show drun --monitor -4
+bindsym $mod+space exec fuzzel
 
 # Focus movement
 bindsym $mod+Left focus left
@@ -112,10 +113,10 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r exec /home/aevan/.config/sway/set_sway_bg.sh
 
 # Exit Sway
-bindsym $mod+Shift+e exec "swaymsg exit"
+bindsym $mod+Shift+e exec "swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit Sway' 'i3-msg exit'"
 
 # Close all notifications
-bindsym $mod+n exec "dunstctl close-all"
+bindsym $mod+n exec "makoctl dismiss --all"
 
 # Resize mode
 mode "resize" {
@@ -165,4 +166,8 @@ bindsym $mod+g exec pkill waybar & waybar -c /home/aevan/.config/waybar2/config 
 bindsym $mod+l exec swaylock
 
 # Notifications (Dunst works under XWayland if necessary)
-exec --no-startup-id dunst
+exec mako
+
+# Global transparency
+corner_radius 7
+

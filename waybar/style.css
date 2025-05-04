@@ -4,36 +4,30 @@
   font-size: 15px;
   font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
   min-height: 0;
+  border-radius: 10px;
+  padding-top: 0;
 }
 
 #waybar {
-  background: transparent;
+  background-color: rgba(17,17,27,.9);
 }
 
-#custom-arch, #workspaces, #custom-clock {
-  border-radius: 10px;
-  background-color: #11111b;
-  color: #b4befe;
-  margin-top: 5px;
-  margin-right: 15px;
-  margin-bottom: 5px;
-  padding-top: 0;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-#custom-arch {
-  font-size: 15px;
-  margin-left: 10px;
-  color: #b4befe;
+#user {
+    margin-left: 30px;
+    background-color: transparent;
 }
 
 #custom-clock {
-  border-radius: 10px;
-  background-color: #11111b;
-  color: #cdd6f4;
-  margin-top: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
-  margin-right: 15px;
+    margin-right: 30px;
+    background-color: transparent;
+}
+
+#workspaces {
+    background-color: transparent;
+}
+
+#wireplumber {
+    padding-right: 20;
+    background-color: transparent;
+    font-size: 14px;
 }

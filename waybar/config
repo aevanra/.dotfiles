@@ -1,18 +1,17 @@
 {
-  "layer": "top",
-    "modules-left": ["custom/arch"],
+    "layer": "top",
+    "modules-left": ["user"],
     "modules-center": ["sway/workspaces"],
-    "modules-right": ["custom/clock"],
-    "custom/arch": {
-      "format": "  ",
-      "tooltip": false,
-      "on-click": "sh $HOME/.config/rofi/bin/powermenu"
+    "modules-right": ["wireplumber", "custom/clock"],
+    "user": {
+        "format": "",
+        "icon": true
     },
     "sway/workspaces": {
-      "format": "{name}",
-      "format": "{icon}",
-      "tooltip": false,
-      "all-outputs": true,
+        "format": "{name}",
+        "format": "{icon}",
+        "tooltip": false,
+        "all-outputs": true,
     },
     "custom/clock": {
         "exec": "date +'%H:%M'",
