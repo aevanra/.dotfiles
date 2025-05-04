@@ -7,6 +7,7 @@ return {
             "hrsh7th/cmp-path",
             "saadparwaiz1/cmp_luasnip",
             "onsails/lspkind.nvim",
+            "hrsh7th/cmp-cmdline"
         },
         config = function()
             local cmp = require("cmp")
@@ -40,6 +41,22 @@ return {
                         maxwidth = 50,
                         ellipsis_char = "...",
                     }),
+                },
+            })
+
+            -- Add command-line mode completion for ':'
+            cmp.setup.cmdline(":", {
+                mapping = cmp.mapping.preset.cmdline(),
+                sources = {
+                    { name = "cmdline" },
+                },
+            })
+
+            -- Optional: command-line completion for '/' and '?'
+            cmp.setup.cmdline({ "/", "?" }, {
+                mapping = cmp.mapping.preset.cmdline(),
+                sources = {
+                    { name = "buffer" },
                 },
             })
         end,
