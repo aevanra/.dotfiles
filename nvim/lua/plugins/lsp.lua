@@ -12,6 +12,16 @@ return {
             local mason_lspconfig = require("mason-lspconfig")
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+            vim.diagnostic.config({
+                virtual_text = {
+                    prefix = "●", -- Customize as desired
+                    spacing = 4,
+                },
+                signs = true,
+                underline = true,
+                update_in_insert = false,
+                severity_sort = true,
+            })
             mason.setup()
 
             mason_lspconfig.setup({
