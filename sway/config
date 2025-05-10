@@ -115,7 +115,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r exec /home/aevan/.config/sway/set_sway_bg.sh
 
 # Exit Sway
-bindsym $mod+Shift+e exec "swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit Sway' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit Sway' 'sway exit'"
 
 # Close all notifications
 bindsym $mod+n exec "makoctl dismiss --all"
