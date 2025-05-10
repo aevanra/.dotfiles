@@ -5,12 +5,12 @@ blur_opacity=${1:-0.9}
 focus_opacity=${2:-1}
 
 class_exemptions_regex="Netflix|YouTube|Twitch|Crunchyroll|Prime Video|Disney\+|Hulu|Dropout|BigQuery|Google Sheets|Jira|Meet|Stack|nvim|DBeaver|Arch|Full Squad|General|God|Call|Pull requests|Akame|htop|NVIDIA|Steam|Huddle|kitty"
-app_exemptions_regex="kitty"
+app_exemptions_regex="tty"
 
 
 old=0
 old_exempt=0
-while true; do
+while [ -n "$SWAYSOCK" ]; do
   new_exempt=0
   data=$(swaymsg -t subscribe '["window"]' | jq -c '{change: .change, id: .container.id, name: .container.name, app_id: .container.app_id}')
 

@@ -2,7 +2,7 @@
     "layer": "top",
     "modules-left": ["user"],
     "modules-center": ["sway/workspaces"],
-    "modules-right": ["wireplumber", "custom/clock"],
+    "modules-right": ["custom/clock"],
     "user": {
         "format": "",
         "icon": true

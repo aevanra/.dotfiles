@@ -26,6 +26,8 @@ exec /home/aevan/.config/sway/set_sway_bg.sh
 # Opacity
 exec /home/aevan/.config/sway/manage_opacity.sh
 
+# Easy Effects
+exec easyeffects --gapplication-service
 
 # Audio controls
 set $refresh_swaybar killall -SIGUSR1 waybar
@@ -39,7 +41,7 @@ floating_modifier $mod
 
 
 # Terminal
-bindsym $mod+Return exec kitty  # or foot, kitty, etc.
+bindsym $mod+Return exec ghostty
 
 # Kill window
 bindsym $mod+Shift+q kill
@@ -148,7 +150,6 @@ smart_gaps on
 smart_borders on
 
 # Floating windows specific rules
-for_window [app_id="Animate"] floating enable, move position mouse, move down 32
 for_window [app_id="scrcpy"] floating enable, move position center
 bindsym $mod+shift+space floating toggle
 
