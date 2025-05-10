@@ -84,7 +84,6 @@ final_space = true
   [[blocks.segments]]
     template = '  '
     foreground = '#d8cfdd'
-    background = '#000000'
     type = 'go'
     style = 'plain'
 
