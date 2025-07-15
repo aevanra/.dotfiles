@@ -29,6 +29,8 @@ vim.keymap.set("n", "<leader>gdf", ":Gitsigns diffthis<CR>")
 vim.keymap.set("n", "<leader>gdp", ":Gitsigns preview_hunk<CR>")
 vim.keymap.set("n", "<leader>gdcc", ":Gitsigns dump_cache<CR>")
 
+-- Supermaven Toggle
+vim.keymap.set("n", "<leader>smt", ":SupermavenToggle<CR>")
 
 --Find and replace under cursor
 vim.keymap.set("n", "<leader>fr", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
@@ -36,10 +38,6 @@ vim.keymap.set("n", "<leader>fr", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left
 -- Buffer Management
 vim.keymap.set('n', '<leader>bc', ":bd<CR>")
 vim.keymap.set('n', '<leader>ca', ":%bd|e#|bd#<CR>")
-
--- Copilot Toggle
-vim.keymap.set('n', '<leader>cpe', ":Copilot enable<CR>")
-vim.keymap.set('n', '<leader>cpd', ":Copilot disable<CR>")
 
 -- Window Creation
 vim.keymap.set('n', '<leader>nw', '<C-w>v')
