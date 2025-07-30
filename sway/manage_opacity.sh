@@ -4,7 +4,7 @@ blur_opacity=${1:-0.9}
 
 focus_opacity=${2:-1}
 
-class_exemptions_regex="Netflix|YouTube|Twitch|Crunchyroll|Prime Video|Disney\+|Hulu|Dropout|BigQuery|Google Sheets|Jira|Meet|Stack|nvim|DBeaver|Arch|Full Squad|General|God|Call|Pull requests|Akame|htop|NVIDIA|Steam|Huddle|kitty"
+class_exemptions_regex="Bleach|Jellyfin|Netflix|YouTube|Twitch|Crunchyroll|Prime Video|Disney\+|Hulu|Dropout|BigQuery|Google Sheets|Jira|Meet|Stack|nvim|DBeaver|Arch|Full Squad|General|God|Call|Pull requests|Akame|htop|NVIDIA|Steam|Huddle|kitty"
 app_exemptions_regex="tty"
 
 

@@ -62,7 +62,7 @@ eval $(thefuck --alias fk)
 
 de_dir="/home/aevan/Documents/DE-pipelines"
 bb_dir="/home/aevan/Documents/blackbird-api"
-de_venv_dir="/home/aevan/python_venvs/de-pipelines/bin/activate"
+de_venv_dir="/home/aevan/python_venvs/airflow3/bin/activate"
 bb_venv_dir="/home/aevan/python_venvs/bb3.11/bin/activate"
 
 #Aliases
@@ -88,32 +88,17 @@ alias refresh_src='sudo /home/aevan/Documents/DE-pipelines/airflow_processing/in
 alias cd='z'
 alias ta='tmux attach'
 alias gmux='tmux'
-alias neofetch='clear && fastfetch'
-alias fastfetch='clear && fastfetch'
 alias fwvpn='/home/aevan/Scripts/fw_vpn.sh'
 
 # Env Vars
 source $HOME/.env
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/aevan/google-cloud-sdk/path.zsh.inc' ]; then . '/home/aevan/google-cloud-sdk/path.zsh.inc'; fi
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/aevan/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/aevan/google-cloud-sdk/completion.zsh.inc'; fi
-
 eval "$( oh-my-posh init zsh --config $HOME/.dotfiles/ohmyposh/omp.toml )"
-
-# pywal theme import
-(cat ~/.cache/wal/sequences &)
 
 # Zoxide
 eval "$(zoxide init zsh)"
 
-# Set fastfetch on init
-fastfetch
-
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 fpath+=~/.zfunc; autoload -Uz compinit; compinit
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/aevan/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/home/aevan/Downloads/google-cloud-sdk/path.zsh.inc'; fi
