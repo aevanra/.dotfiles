@@ -1,11 +1,13 @@
 {
     "layer": "top",
-    "modules-left": ["user"],
+    "modules-left": ["custom/user"],
     "modules-center": ["sway/workspaces"],
     "modules-right": ["custom/clock"],
-    "user": {
-        "format": "",
-        "icon": true
+    "custom/user": {
+        "icon": true,
+        "exec": "echo 'VPN UI'",
+        "interval": 1,
+        "on-click": "globalprotect launch-ui"
     },
     "sway/workspaces": {
         "format": "{name}",

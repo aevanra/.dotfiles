@@ -15,12 +15,12 @@ setopt HIST_IGNORE_DUPS
 setopt HIST_IGNORE_SPACE
 setopt HIST_VERIFY
 setopt INC_APPEND_HISTORY
-source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+source ~/zsh-plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
 # Autosuggestions
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/zsh-plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 bindkey '^N' autosuggest-accept
 
 # Enable extended globbing
@@ -48,13 +48,13 @@ bindkey "^E" edit-command-line
 
 
 # Syntax Highlighting
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/zsh-plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # autonotify
-source /usr/share/zsh/plugins/zsh-auto-notify/auto-notify.plugin.zsh
+source ~/zsh-plugins/zsh-auto-notify/auto-notify.plugin.zsh
 # autopair
-source /usr/share/zsh/plugins/zsh-autopair/autopair.zsh
+source ~/zsh-plugins/zsh-autopair/autopair.zsh
 # you-should-use
-source /usr/share/zsh/plugins/zsh-you-should-use/you-should-use.plugin.zsh
+source ~/zsh-plugins/zsh-you-should-use/you-should-use.plugin.zsh
 
 # thefuck
 eval $(thefuck --alias)
@@ -64,6 +64,9 @@ de_dir="/home/aevan/Documents/DE-pipelines"
 bb_dir="/home/aevan/Documents/blackbird-api"
 de_venv_dir="/home/aevan/python_venvs/airflow3/bin/activate"
 bb_venv_dir="/home/aevan/python_venvs/bb3.11/bin/activate"
+
+# Zoxide
+eval "$(zoxide init zsh)"
 
 #Aliases
 alias ls='ls --color=auto'
@@ -94,8 +97,6 @@ alias fwvpn='/home/aevan/Scripts/fw_vpn.sh'
 source $HOME/.env
 eval "$( oh-my-posh init zsh --config $HOME/.dotfiles/ohmyposh/omp.toml )"
 
-# Zoxide
-eval "$(zoxide init zsh)"
 
 
 fpath+=~/.zfunc; autoload -Uz compinit; compinit

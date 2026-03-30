@@ -25,7 +25,7 @@ return {
             mason.setup()
 
             mason_lspconfig.setup({
-                ensure_installed = { "lua_ls", "ruff" },
+                ensure_installed = {"ruff", "jedi_language_server"},
                 handlers = {
                     function(server_name)
                         lspconfig[server_name].setup({

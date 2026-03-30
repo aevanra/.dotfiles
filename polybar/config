@@ -55,7 +55,7 @@ font-0 = MesloLGS Nerd Font:size=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
-modules-left = bspwm i3 scrcpy shart
+modules-left = bspwm i3 scrcpy
 modules-right = pulseaudio temperature date eth powermenu
 
 tray-position = right
@@ -142,13 +142,6 @@ type = custom/text
 content-foreground = ${colors.foreground}
 content = "Pixel"
 click-left = "scrcpy -d"
-
-[module/shart]
-type = custom/script
-exec = echo "How am I holding up in your estimations?"
-format = <label>
-click-left = /home/aevan/.config/polybar/shart.sh /home/aevan/.config/polybar/no_notes.gif
-click-right = /home/aevan/.config/polybar/shart.sh /home/aevan/.config/polybar/the_kiss.gif
 
 ; Right Bar
 [module/filesystem]
