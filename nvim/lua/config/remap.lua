@@ -19,9 +19,6 @@ vim.keymap.set("n", "<leader>nh", function() require('noice').cmd("telescope") e
 vim.keymap.set("n", "<leader>rf", "<cmd>!ruff check --fix %:p <cr>")
 vim.keymap.set("n", "<leader>fmt", "<cmd>!black %:p <cr>")
 
--- Save and run python file
-vim.keymap.set('n', '<leader>py', ":update<bar>!python %<CR>")
-
 -- Git Management
 vim.keymap.set("n", "<leader>gp", "<cmd>!git push origin<cr>")
 vim.keymap.set('n', '<leader>gs', vim.cmd.Git)
